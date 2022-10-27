@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AuthFilter extends HttpFilter {
-
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (request.getSession().getAttribute("login") == null || request.getSession().getAttribute("password") == null  ) {
@@ -18,9 +17,5 @@ public class AuthFilter extends HttpFilter {
         chain.doFilter(request, response);
     }
 
-    @Override
-    public void destroy() {
-        
 
-    }
 }

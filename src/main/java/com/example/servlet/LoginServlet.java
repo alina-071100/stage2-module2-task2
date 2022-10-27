@@ -16,10 +16,9 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         try {
-            PrintWriter out = response.getWriter();
             String login = request.getParameter("login");
             String password = request.getParameter("password");
-            if (login != null && password != null && login != "" && password != "") {
+            if (login != null && password != null && !login.equals("") && !password.equals("")) {
 
                 request.getSession().setAttribute("login",login);
                 request.getSession().setAttribute("password",password);
