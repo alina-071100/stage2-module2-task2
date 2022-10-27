@@ -2,7 +2,7 @@
 
 </html>
 <head>
-<title> Registration page</title>
+    <title> Registration page</title>
 </head>
 <h3>Init time: ${servletTimeInit}</h3>
 <body>
@@ -11,7 +11,11 @@
     <input id="login" type="text" name="login" size="30"> <br/>
     <label for="password">Password</label><br/>
     <input id="password" type="password" name="password" size="30"><br/>
+    <br>
     <input type="submit" value="OK">
+
+    <%--    <a href="${pageContext.request.contextPath}user/hello.jsp">Logout</a>--%>
+
 </form>
 </body>
 </html>
