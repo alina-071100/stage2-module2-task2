@@ -26,7 +26,8 @@ An application has a login page. The correct logins are "user" and "admin". The 
 + have url `/login`.
 + check session attribute "user".
 + for **GET** request if the session attribute "user" exists, redirect to the `/login.jsp` page, else redirect to the `/user/hello.jsp`.
-+ for **POST** request check the request attribute "login" in [Users](src/main/java/com/example/Users.java) and the request attribute "password" on being blank. If attributes are correct set session attribute "user" and redirect to `/user/hello.jsp`, else forward to the `/login.jsp`.
++ for **POST** request check the request attribute "login" in [Users](src/main/java/com/example/Users.java) and the request attribute 
++ "password" on being blank. If attributes are correct set session attribute "user" and redirect to `/user/hello.jsp`, else forward to the `/login.jsp`.
 
 **LogoutServlet** should:
 + be placed in `com.example.servlet` package.

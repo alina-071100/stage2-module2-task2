@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 
-
+<!DOCTYPE html>
 <html  xml:lang="en">
 <head>
     <title> Registration page</title>
@@ -14,9 +14,6 @@
     <input id="password" type="password" name="password" size="30"><br/>
     <br>
     <input type="submit" value="OK">
-
-    <%--    <a href="${pageContext.request.contextPath}user/hello.jsp">Logout</a>--%>
-
 </form>
 </body>
 </html>

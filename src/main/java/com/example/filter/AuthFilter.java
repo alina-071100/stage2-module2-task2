@@ -9,13 +9,12 @@ import java.io.IOException;
 
 public class AuthFilter extends HttpFilter {
     @Override
-    protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (request.getSession().getAttribute("login") == null || request.getSession().getAttribute("password") == null  ) {
             response.sendRedirect("/");
             return;
         }
         chain.doFilter(request, response);
     }
-
 
 }
