@@ -13,6 +13,7 @@
     </welcome-file-list>
 
 
+<!--    haytararel annotaciayov-->
     <filter>
         <filter-name>AuthFilter</filter-name>
         <filter-class>com.example.filter.AuthFilter</filter-class>
