@@ -14,14 +14,15 @@ public class LogoutServlet extends HttpServlet {
     // jnjel user atribut@ sessiayic
     @Override
     protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response) throws ServletException, IOException {
+                         HttpServletResponse response) throws IOException {
 
         HttpSession session = request.getSession();
 
         session.removeAttribute("user");
         session.invalidate();
-
-        request.getRequestDispatcher("/").forward(
-                request, response);
+        response.sendRedirect("/login.jsp");
+//
+//        request.getRequestDispatcher("/").forward(
+//                request, response);
     }
 }

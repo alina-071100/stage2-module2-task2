@@ -13,11 +13,13 @@ public class AuthFilter extends HttpFilter {
     // stugvi "user" session atribut ka te che, ete che tanel login jsp-i vra
     @Override
     public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (request.getSession().getAttribute("login") == null || request.getSession().getAttribute("password") == null  ) {
-            response.sendRedirect("/login.jsp");
-            return;
-        }
-        chain.doFilter(request, response);
-    }
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        Object user = httpServletRequest.getSession().getAttribute("user");
 
+        if (user == null) {
+            ((HttpServletResponse) response).sendRedirect("/login.jsp");
+        } else {
+            chain.doFilter(request, response);
+        }
+    }
 }
