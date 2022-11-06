@@ -2,6 +2,8 @@ package com.example.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +13,11 @@ import java.io.IOException;
 @WebFilter("/user/*")
 public class AuthFilter extends HttpFilter {
     // stugvi "user" session atribut ka te che, ete che tanel login jsp-i vra
+
     @Override
-    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         Object user = httpServletRequest.getSession().getAttribute("user");
 
@@ -22,4 +27,4 @@ public class AuthFilter extends HttpFilter {
             chain.doFilter(request, response);
         }
     }
-}
+    }
