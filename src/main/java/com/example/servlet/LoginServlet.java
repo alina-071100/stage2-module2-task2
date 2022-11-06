@@ -11,7 +11,19 @@ import java.io.PrintWriter;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
 
+        Object user = req.getSession().getAttribute("user");
+
+        if (user == null) {
+            resp.sendRedirect("/login.jsp");
+        } else {
+            resp.sendRedirect("/user/hello.jsp");
+        }
+
+    }
 @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
