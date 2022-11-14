@@ -1,9 +1,6 @@
 package com.example.filter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter("/user/*")
-public class AuthFilter extends HttpFilter {
+public class AuthFilter implements Filter {
     // stugvi "user" session atribut ka te che, ete che tanel login jsp-i vra
 
     @Override

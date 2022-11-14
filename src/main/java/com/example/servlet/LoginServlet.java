@@ -33,12 +33,10 @@ public class LoginServlet extends HttpServlet {
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-            if (login != null && password != null && !login.equals("") && !password.equals("")) {
-
+        if (login != null && password != null && !login.equals("") && !password.equals("")) {
 
             boolean rightLogin = usersRepo.getUsers().contains(login);
             boolean rightPassword = password != null && !password.trim().isEmpty();
-
 
             if (rightLogin && rightPassword) {
                 request.getSession().setAttribute("user", login);
