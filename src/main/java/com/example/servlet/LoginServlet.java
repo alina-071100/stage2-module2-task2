@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
     private final Users usersRepo = Users.getInstance();
 
     @Override
@@ -29,22 +30,22 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        if (login != null && password != null && !login.equals("") && !password.equals("")) {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
 
-            boolean rightLogin = usersRepo.getUsers().contains(login);
-            boolean rightPassword = password != null && !password.trim().isEmpty();
+        boolean rightLogin = usersRepo.getUsers().contains(login);
+        boolean rightPassword = password != null && !password.trim().isEmpty();
 
-            if (rightLogin && rightPassword) {
-                request.getSession().setAttribute("user", login);
-                response.sendRedirect("/user/hello.jsp");
-            } else {
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
-            }
+        if (rightLogin && rightPassword) {
+            req.getSession().setAttribute("user", login);
+            resp.sendRedirect("/user/hello.jsp");
+        } else {
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
-    }
-}
 
+    }
+
+}
